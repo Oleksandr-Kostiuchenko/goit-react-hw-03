@@ -1,3 +1,27 @@
 .SearchBoxWrapper {
   margin-bottom: 10px;
+
+  position: relative;
+}
+
+.contactInput {
+  width: 100%;
+  height: 40px;
+
+  border: none;
+  border-radius: 12px;
+  background-color: #eff0f6;
+
+  outline: none;
+  padding-left: 44px;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Adjust this value as needed */
+  transform: translateY(-50%);
 }

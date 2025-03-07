@@ -1,5 +1,9 @@
 import { useState, useEffect, useId } from "react";
-import "./App.css";
+import style from "./App.module.css";
+
+import { MdAccountCircle } from "react-icons/md";
+import { GoPencil } from "react-icons/go";
+import { BiSolidPencil } from "react-icons/bi";
 
 import ContactList from "./components/contactlist/ContactList";
 import SearchBox from "./components/searchbox/SearchBox";
@@ -44,15 +48,23 @@ function App() {
   }, [contacts]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm onAdd={addContact} />
+    <>
+      <div className={style.pageHeader}>
+        <div className={style.iconWrapper}>
+          <MdAccountCircle className={style.icon} />
+        </div>
+        <h1 className={style.pageTitle}>Contacts</h1>
+        {/* <div className={`${style.iconWrapper} ${style.iconWrapperEdit}`}>
+          <BiSolidPencil className={style.iconPencil} />
+        </div> */}
+      </div>
       <SearchBox
         searchBoxValue={searchBoxValue}
         setSearchBoxValue={setSearchBoxValue}
       />
+      <ContactForm onAdd={addContact} />
       <ContactList contactsData={visibleContacts} onDelete={deleteContact} />
-    </div>
+    </>
   );
 }
 

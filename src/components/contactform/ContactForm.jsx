@@ -30,10 +30,12 @@ const ContactForm = ({ onAdd }) => {
       onSubmit={onFormSubmit}
       validationSchema={validationSchema}
     >
-      <Form>
+      <Form className={style.formWrapper}>
         <div>
-          <label htmlFor="">Name</label>
-          <Field type="text" name="name" />
+          <label className={style.inputLabel} htmlFor="">
+            Name
+          </label>
+          <Field className={style.dataInput} type="text" name="name" />
           <ErrorMessage
             className={style.errorMessage}
             name="name"
@@ -42,8 +44,10 @@ const ContactForm = ({ onAdd }) => {
         </div>
 
         <div>
-          <label htmlFor="">Number</label>
-          <Field type="text" name="number" />
+          <label className={style.inputLabel} htmlFor="">
+            Number
+          </label>
+          <Field className={style.dataInput} type="text" name="number" />
           <ErrorMessage
             className={style.errorMessage}
             name="number"
@@ -51,7 +55,9 @@ const ContactForm = ({ onAdd }) => {
           />
         </div>
 
-        <button type="submit">Add contact</button>
+        <button className={style.addButton} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );

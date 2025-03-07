@@ -41,10 +41,10 @@ img {
 
 body {
   font-family: "Montserrat", sans-serif;
-  /* background-color: #1c1d20; */
+  background-color: #ffffff;
   /* background-image: url(/public/grainy.png); */
-  /* box-shadow: inset 0px 0px 300px -8px rgba(0, 0, 0, 1); */
-  /* color: #fafafa; */
+  box-shadow: inset 0px 0px 30px -8px rgb(20, 20, 20);
+  color: #000;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -106,10 +106,6 @@ html {
     /* padding-left: 196px; */
     /* padding-right: 196px; */
   }
-}
-
-h1 {
-  margin-bottom: 20px;
 }
 
 input {
