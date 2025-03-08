@@ -5,6 +5,11 @@ import * as Yup from "yup";
 import "yup-phone-lite";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+import { IoPersonAdd } from "react-icons/io5";
+import { FaPhone } from "react-icons/fa6";
+
+import { motion } from "framer-motion";
+
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Min. 3 symbols")
@@ -30,35 +35,51 @@ const ContactForm = ({ onAdd }) => {
       onSubmit={onFormSubmit}
       validationSchema={validationSchema}
     >
-      <Form className={style.formWrapper}>
-        <div>
-          <label className={style.inputLabel} htmlFor="">
-            Name
-          </label>
-          <Field className={style.dataInput} type="text" name="name" />
-          <ErrorMessage
-            className={style.errorMessage}
-            name="name"
-            component="span"
-          />
-        </div>
+      <motion.div
+        className={style.pageHeader}
+        initial={{ opacity: 0, x: -90 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Form className={style.formWrapper} autoComplete="off">
+          <div className={style.inputsWrapper}>
+            <div>
+              <label className={style.inputLabel} htmlFor="">
+                Name
+              </label>
+              <div className={style.inputIconWrapper}>
+                <IoPersonAdd className={style.inputIcon} />
+                <Field className={style.dataInput} type="text" name="name" />
+              </div>
+              <ErrorMessage
+                className={style.errorMessage}
+                name="name"
+                component="span"
+              />
+            </div>
 
-        <div>
-          <label className={style.inputLabel} htmlFor="">
-            Number
-          </label>
-          <Field className={style.dataInput} type="text" name="number" />
-          <ErrorMessage
-            className={style.errorMessage}
-            name="number"
-            component="span"
-          />
-        </div>
+            <div>
+              <label className={style.inputLabel} htmlFor="">
+                Number
+              </label>
+              <div className={style.inputIconWrapper}>
+                <FaPhone className={style.inputIcon} />
+                <Field className={style.dataInput} type="text" name="number" />
+              </div>
+              <ErrorMessage
+                className={style.errorMessage}
+                name="number"
+                component="span"
+              />
+            </div>
+          </div>
 
-        <button className={style.addButton} type="submit">
-          Add contact
-        </button>
-      </Form>
+          <button className={style.addButton} type="submit">
+            Add contact
+          </button>
+        </Form>
+      </motion.div>
     </Formik>
   );
 };

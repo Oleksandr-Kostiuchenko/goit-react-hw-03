@@ -1,13 +1,21 @@
 import style from "./SearchBox.module.css";
 import { CiSearch } from "react-icons/ci";
 
+import { motion } from "framer-motion";
+
 const SearchBox = ({ searchBoxValue, setSearchBoxValue }) => {
   const onSearchBoxChange = (event) => {
     setSearchBoxValue(event.target.value);
   };
 
   return (
-    <div className={style.SearchBoxWrapper}>
+    <motion.div
+      className={style.SearchBoxWrapper}
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <CiSearch className={style.searchIcon} />
       <input
         placeholder="Search"
@@ -16,7 +24,7 @@ const SearchBox = ({ searchBoxValue, setSearchBoxValue }) => {
         onChange={onSearchBoxChange}
         type="text"
       />
-    </div>
+    </motion.div>
   );
 };
 
